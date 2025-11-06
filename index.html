@@ -1,246 +1,307 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>राजमाता प्रिमीअर लीग पर्व दुसरे</title>
+  <title>Cricket Match Countdown</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    :root {
-      --primary: #ffd700;
-      --secondary: #00b4ff;
-      --highlight: #ff4444;
-      --text-light: #ffffff;
-      --text-muted: #dcdcdc;
-      --bg-overlay: rgba(0, 0, 0, 0.6);
-    }
+```
+:root {
+  --primary: #ffd700;     
+  --secondary: #00b4ff;   
+  --highlight: #ff4444;   
+  --text-light: #ffffff;
+  --text-muted: #dcdcdc;
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+}
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      color: var(--text-light);
-      background: url('https://thumbs.dreamstime.com/b/full-illustration-cricket-ground-stands-night-stadium-illuminated-projector-lamps-sporting-arena-tournaments-367397924.jpg') no-repeat center center/cover;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      flex-direction: column;
-      overflow: hidden;
-      position: relative;
-      padding: 1rem;
-    }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-light);
+  background: url('https://thumbs.dreamstime.com/b/full-illustration-cricket-ground-stands-night-stadium-illuminated-projector-lamps-sporting-arena-tournaments-367397924.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
 
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: var(--bg-overlay);
-      z-index: 0;
-    }
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg-overlay);
+  z-index: 0;
+}
 
-    h1, h2, .details, .countdown, .cheer-btn, .team-logos {
-      position: relative;
-      z-index: 1;
-    }
+h1, h2, .details, .countdown, .cheer-btn, .team-logos {
+  position: relative;
+  z-index: 1;
+}
 
-    /* Organizer */
-    .org-logo {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      z-index: 10;
-      flex-wrap: wrap;
-    }
+/* Organizer logo */
+.org-logo {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+}
 
-    .org-logo img {
-      width: clamp(50px, 8vw, 70px);
-      height: clamp(50px, 8vw, 70px);
-      border-radius: 50%;
-      border: 2px solid var(--primary);
-      background: #fff;
-      object-fit: cover;
-    }
+.org-logo img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  background: #fff;
+  object-fit: cover;
+}
 
-    .org-logo h1 {
-      margin: 0;
-      font-size: clamp(1rem, 3vw, 1.8rem);
-      color: var(--primary);
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-    }
+.org-logo h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
 
-    /* Teams */
-    .team-logos {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: clamp(15px, 4vw, 40px);
-      flex-wrap: wrap;
-      margin: 1rem 0;
-    }
+/* Teams Section */
+.team-logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
 
-    .team-logos img {
-      width: clamp(70px, 15vw, 100px);
-      height: clamp(70px, 15vw, 100px);
-      border-radius: 50%;
-      border: 2px solid var(--secondary);
-      background: #fff;
-      object-fit: cover;
-      box-shadow: 0 0 15px rgba(0, 180, 255, 0.6);
-    }
+.team-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
 
-    .team-logos h1 {
-      font-size: clamp(1.2rem, 4vw, 2rem);
-      color: var(--primary);
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-      margin: 10px 0;
-      font-weight: 600;
-      flex-basis: 100%;
-    }
+.team-logos img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid var(--secondary);
+  background: #fff;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 180, 255, 0.6);
+}
 
-    h2 {
-      font-size: clamp(1rem, 3vw, 1.5rem);
-      color: var(--secondary);
-      margin: 5px 0;
-      text-shadow: 0 0 8px rgba(0, 180, 255, 0.6);
-    }
+.vs-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+}
 
-    /* Countdown */
-    .countdown {
-      display: flex;
-      gap: clamp(10px, 3vw, 25px);
-      justify-content: center;
-      background: rgba(0, 0, 40, 0.5);
-      padding: 1rem 2rem;
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
-      margin-top: 10px;
-      box-shadow: 0 0 20px rgba(0, 180, 255, 0.3);
-      flex-wrap: wrap;
-    }
+.team-names {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  font-size: 1.1rem;
+  color: var(--text-light);
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
 
-    .countdown div {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      color: var(--primary);
-      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-      min-width: 55px;
-      font-size: clamp(1rem, 5vw, 2rem);
-    }
+h2 {
+  font-size: 1.5rem;
+  color: var(--secondary);
+  margin: 10px 0;
+  text-shadow: 0 0 8px rgba(0, 180, 255, 0.6);
+}
 
-    .label {
-      font-size: clamp(0.7rem, 2vw, 0.9rem);
-      color: var(--text-muted);
-      margin-top: 5px;
-    }
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: 20px;
+  font-size: 2rem;
+  background: rgba(0, 0, 40, 0.5);
+  padding: 15px 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  justify-content: center;
+  margin-top: 10px;
+  box-shadow: 0 0 20px rgba(0, 180, 255, 0.3);
+}
 
-    .details {
-      margin-top: 25px;
-      font-size: clamp(0.8rem, 2.5vw, 1rem);
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
+.countdown div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
 
-    .cheer-btn {
-      margin-top: 25px;
-      padding: 12px 25px;
-      font-size: clamp(0.9rem, 2.5vw, 1rem);
-      background: var(--highlight);
-      border: none;
-      border-radius: 30px;
-      color: var(--text-light);
-      cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
-    }
+.label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 5px;
+  text-shadow: none;
+}
 
-    .cheer-btn:hover {
-      background: #ff6b6b;
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(255, 68, 68, 0.9);
-    }
+/* Details */
+.details {
+  margin-top: 25px;
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
 
-    /* Animation */
-    .cricket-scene {
-      position: absolute;
-      bottom: 40px;
-      right: 50px;
-      width: clamp(60px, 12vw, 100px);
-      height: clamp(60px, 12vw, 100px);
-      z-index: 1;
-    }
+/* Button */
+.cheer-btn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  background: var(--highlight);
+  border: none;
+  border-radius: 30px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
+}
 
-    .bat {
-      position: absolute;
-      width: 12px;
-      height: 80%;
-      background: #c69c6d;
-      border-radius: 5px;
-      bottom: 10px;
-      left: 20px;
-      transform-origin: bottom right;
-      animation: swing 2s ease-in-out infinite;
-    }
+.cheer-btn:hover {
+  background: #ff6b6b;
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(255, 68, 68, 0.9);
+}
 
-    .bat::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 15px;
-      background: #795548;
-      bottom: 0;
-      border-radius: 5px;
-    }
+/* Bat & Ball */
+.cricket-scene {
+  position: absolute;
+  bottom: 40px;
+  right: 80px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
 
-    @keyframes swing {
-      0% { transform: rotate(0deg); }
-      50% { transform: rotate(-45deg); }
-      100% { transform: rotate(0deg); }
-    }
+.bat {
+  position: absolute;
+  width: 12px;
+  height: 80px;
+  background: #c69c6d;
+  border-radius: 5px;
+  bottom: 10px;
+  left: 20px;
+  transform-origin: bottom right;
+  animation: swing 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
 
-    .ball {
-      position: absolute;
-      bottom: 15px;
-      left: 0;
-      width: 25px;
-      height: 25px;
-      background: radial-gradient(circle, #ff3d00, #b71c1c);
-      border-radius: 50%;
-      animation: bounce 2s ease-in-out infinite;
-      box-shadow: 0 0 10px rgba(255, 61, 0, 0.7);
-    }
+.bat::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  background: #795548;
+  bottom: 0;
+  border-radius: 5px;
+}
 
-    @keyframes bounce {
-      0% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(40px) translateY(-50px); }
-      100% { transform: translateX(0) translateY(0); }
-    }
+@keyframes swing {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-45deg); }
+}
 
-    /* MOBILE */
-    @media (max-width: 700px) {
-      .org-logo {
-        position: static;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 1rem;
-      }
+.ball {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #ff3d00, #b71c1c);
+  border-radius: 50%;
+  animation: bounce 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 61, 0, 0.7);
+}
 
-      .cricket-scene {
-        right: 10px;
-        bottom: 20px;
-      }
-    }
+@keyframes bounce {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  50% { transform: translateX(40px) translateY(-50px); }
+}
+
+/* ✅ Desktop layout */
+@media (min-width: 768px) {
+  .team-logos {
+    gap: 20px;
+  }
+
+  .team-row {
+    flex-direction: row;
+  }
+
+  .team-names {
+    gap: 150px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ✅ Mobile layout */
+@media (max-width: 600px) {
+  .org-logo {
+    top: 10px;
+    left: 10px;
+  }
+
+  .org-logo img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .org-logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .team-logos img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .vs-text {
+    font-size: 1.3rem;
+  }
+
+  .countdown {
+    flex-direction: column;
+    font-size: 1.5rem;
+    gap: 10px;
+  }
+
+  .team-names {
+    gap: 40px;
+    font-size: 0.9rem;
+  }
+
+  .cricket-scene {
+    right: 15px;
+    bottom: 25px;
+    width: 80px;
+    height: 80px;
+  }
+}
+```
+
   </style>
 </head>
-
 <body>
   <div class="org-logo">
     <img src="org-logo-white.jpg" alt="Logo">
@@ -250,9 +311,15 @@
   <h2>पहिली मॅच</h2>
 
   <div class="team-logos">
-    <img src="team2.jpg" alt="Team 1">
-    <h1>छत्रपती वॉरियर्स 🆚 युवराज रॉयल्स</h1>
-    <img src="team1.jpg" alt="Team 2">
+    <div class="team-row">
+      <img src="team2.jpg" alt="1st Team Logo">
+      <div class="vs-text">VS</div>
+      <img src="team1.jpg" alt="2nd Team Logo">
+    </div>
+    <div class="team-names">
+      <div>छत्रपती वॉरियर्स</div>
+      <div>युवराज रॉयल्स</div>
+    </div>
   </div>
 
   <h2>Countdown to Match Start</h2>
@@ -266,11 +333,11 @@
 
   <div class="details">
     <p><strong>Venue:</strong> राजमाता मित्र मंडळ भांडूप (प) 🏟️</p>
-    <p><strong>Overs:</strong> 5</p>
+    <p><strong>Overs:</strong> 5 </p>
     <p><strong>Match Starts:</strong> 09 November 2025, 9:00 AM IST</p>
   </div>
 
-  <button class="cheer-btn" onclick="cheer()">Cheer for Your Team! 🎉</button>
+<button class="cheer-btn" onclick="cheer()">Cheer for Your Team! 🎉</button>
 
   <div class="cricket-scene">
     <div class="bat"></div>
@@ -314,5 +381,6 @@
       }, 2000);
     }
   </script>
+
 </body>
 </html>
