@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,329 +7,338 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-```
-:root {
-  --primary: #ffd700;     
-  --secondary: #00b4ff;   
-  --highlight: #ff4444;   
-  --text-light: #ffffff;
-  --text-muted: #dcdcdc;
-  --bg-overlay: rgba(0, 0, 0, 0.6);
-}
+    :root {
+      --primary: #ffd700;     
+      --secondary: #00d4ff;   
+      --highlight: #ff4444;   
+      --text-light: #ffffff;
+      --text-muted: #e0e0e0;
+      --bg-overlay: rgba(0, 0, 0, 0.65);
+    }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-light);
-  background: url('https://thumbs.dreamstime.com/b/full-illustration-cricket-ground-stands-night-stadium-illuminated-projector-lamps-sporting-arena-tournaments-367397924.jpg') no-repeat center center/cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-light);
+      background: url('https://thumbs.dreamstime.com/b/full-illustration-cricket-ground-stands-night-stadium-illuminated-projector-lamps-sporting-arena-tournaments-367397924.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
 
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--bg-overlay);
-  z-index: 0;
-}
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--bg-overlay);
+      z-index: 0;
+    }
 
-h1, h2, .details, .countdown, .cheer-btn, .team-logos {
-  position: relative;
-  z-index: 1;
-}
+    h1, h2, .details, .countdown, .cheer-btn, .team-logos {
+      position: relative;
+      z-index: 1;
+    }
 
-/* Organizer logo */
-.org-logo {
-  position: absolute;
-  top: 20px;
-  left: 25px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  z-index: 10;
-}
+    /* Organizer logo */
+    .org-logo {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+    }
 
-.org-logo img {
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  border: 2px solid var(--primary);
-  background: #fff;
-  object-fit: cover;
-}
+    .org-logo img {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
 
-.org-logo h1 {
-  margin: 0;
-  font-size: 1.7rem;
-  color: var(--primary);
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
+    .org-logo h1 {
+      margin: 0;
+      font-size: 1.7rem;
+      color: #ffe34d;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 0.9), 0 2px 4px rgba(0,0,0,0.5);
+    }
 
-/* Teams Section */
-.team-logos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  gap: 10px;
-}
+    /* Teams Section */
+    .team-logos {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
 
-.team-row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
-  flex-wrap: wrap;
-}
+    .team-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
 
-.team-logos img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 2px solid var(--secondary);
-  background: #fff;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(0, 180, 255, 0.6);
-}
+    .team-logos img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #00e5ff;
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 0 0 25px rgba(0, 229, 255, 0.9);
+    }
 
-.vs-text {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
-}
+    .vs-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffeb3b;
+      text-shadow: 0 0 20px rgba(255, 235, 59, 1), 0 2px 6px rgba(0,0,0,0.7);
+    }
 
-.team-names {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  font-size: 1.1rem;
-  color: var(--text-light);
-  font-weight: 500;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-}
+    .team-names {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      font-size: 1.1rem;
+      color: #ffffff;
+      font-weight: 600;
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0,0,0,0.6);
+    }
 
-h2 {
-  font-size: 1.5rem;
-  color: var(--secondary);
-  margin: 10px 0;
-  text-shadow: 0 0 8px rgba(0, 180, 255, 0.6);
-}
+    h2 {
+      font-size: 1.5rem;
+      color: #00e5ff;
+      margin: 10px 0;
+      font-weight: 600;
+      text-shadow: 0 0 15px rgba(0, 229, 255, 1), 0 2px 4px rgba(0,0,0,0.6);
+    }
 
-/* Countdown */
-.countdown {
-  display: flex;
-  gap: 20px;
-  font-size: 2rem;
-  background: rgba(0, 0, 40, 0.5);
-  padding: 15px 25px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  justify-content: center;
-  margin-top: 10px;
-  box-shadow: 0 0 20px rgba(0, 180, 255, 0.3);
-}
+    /* Countdown */
+    .countdown {
+      display: flex;
+      gap: 20px;
+      font-size: 2rem;
+      background: rgba(0, 0, 30, 0.7);
+      padding: 15px 25px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      justify-content: center;
+      margin-top: 10px;
+      box-shadow: 0 0 30px rgba(0, 180, 255, 0.6);
+      border: 2px solid rgba(0, 229, 255, 0.4);
+    }
 
-.countdown div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--primary);
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-}
+    .countdown div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #ffe34d;
+      text-shadow: 0 0 15px rgba(255, 215, 0, 1), 0 2px 4px rgba(0,0,0,0.5);
+    }
 
-.label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 5px;
-  text-shadow: none;
-}
+    .label {
+      font-size: 0.8rem;
+      color: #ffffff;
+      margin-top: 5px;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+      font-weight: 500;
+    }
 
-/* Details */
-.details {
-  margin-top: 25px;
-  font-size: 1rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
+    /* Details */
+    .details {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: #f0f0f0;
+      line-height: 1.8;
+      font-weight: 500;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+    }
 
-/* Button */
-.cheer-btn {
-  margin-top: 25px;
-  padding: 12px 25px;
-  font-size: 1rem;
-  background: var(--highlight);
-  border: none;
-  border-radius: 30px;
-  color: var(--text-light);
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
-}
+    .details strong {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px rgba(255, 235, 59, 0.8);
+    }
 
-.cheer-btn:hover {
-  background: #ff6b6b;
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 68, 68, 0.9);
-}
+    /* Button */
+    .cheer-btn {
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #ff4444, #ff6b6b);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 30px;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 20px rgba(255, 68, 68, 0.8);
+      font-weight: 600;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
 
-/* Bat & Ball */
-.cricket-scene {
-  position: absolute;
-  bottom: 40px;
-  right: 80px;
-  width: 100px;
-  height: 100px;
-  z-index: 1;
-}
+    .cheer-btn:hover {
+      background: linear-gradient(135deg, #ff6b6b, #ff4444);
+      transform: scale(1.1);
+      box-shadow: 0 0 30px rgba(255, 68, 68, 1);
+    }
 
-.bat {
-  position: absolute;
-  width: 12px;
-  height: 80px;
-  background: #c69c6d;
-  border-radius: 5px;
-  bottom: 10px;
-  left: 20px;
-  transform-origin: bottom right;
-  animation: swing 2s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
-}
+    /* Bat & Ball */
+    .cricket-scene {
+      position: absolute;
+      bottom: 40px;
+      right: 80px;
+      width: 100px;
+      height: 100px;
+      z-index: 1;
+    }
 
-.bat::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 15px;
-  background: #795548;
-  bottom: 0;
-  border-radius: 5px;
-}
+    .bat {
+      position: absolute;
+      width: 12px;
+      height: 80px;
+      background: #d4a574;
+      border-radius: 5px;
+      bottom: 10px;
+      left: 20px;
+      transform-origin: bottom right;
+      animation: swing 2s ease-in-out infinite;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    }
 
-@keyframes swing {
-  0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(-45deg); }
-}
+    .bat::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 15px;
+      background: #8b5a3c;
+      bottom: 0;
+      border-radius: 5px;
+    }
 
-.ball {
-  position: absolute;
-  bottom: 15px;
-  left: 0;
-  width: 25px;
-  height: 25px;
-  background: radial-gradient(circle, #ff3d00, #b71c1c);
-  border-radius: 50%;
-  animation: bounce 2s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 61, 0, 0.7);
-}
+    @keyframes swing {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-45deg); }
+    }
 
-@keyframes bounce {
-  0%, 100% { transform: translateX(0) translateY(0); }
-  50% { transform: translateX(40px) translateY(-50px); }
-}
+    .ball {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      width: 25px;
+      height: 25px;
+      background: radial-gradient(circle, #ff3d00, #d32f2f);
+      border-radius: 50%;
+      animation: bounce 2s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(255, 61, 0, 1);
+    }
 
-/* ✅ Desktop layout */
-@media (min-width: 768px) {
-  .team-logos {
-    gap: 20px;
-  }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      50% { transform: translateX(40px) translateY(-50px); }
+    }
 
-  .team-row {
-    flex-direction: row;
-  }
+    /* Desktop layout */
+    @media (min-width: 768px) {
+      .team-logos {
+        gap: 20px;
+      }
 
-  .team-names {
-    gap: 150px;
-    font-size: 1.2rem;
-  }
-}
+      .team-row {
+        flex-direction: row;
+      }
 
-/* ✅ Mobile layout */
-/* ✅ Mobile layout */
-@media (max-width: 600px) {
-.org-logo {
-top: 10px;
-left: 10px;
-}
+      .team-names {
+        gap: 150px;
+        font-size: 1.2rem;
+      }
+    }
 
-.org-logo img {
-width: 50px;
-height: 50px;
-}
+    /* Mobile layout */
+    @media (max-width: 600px) {
+      .org-logo {
+        top: 10px;
+        left: 10px;
+      }
 
-.org-logo h1 {
-font-size: 1.2rem;
-}
+      .org-logo img {
+        width: 50px;
+        height: 50px;
+      }
 
-.team-logos img {
-width: 70px;
-height: 70px;
-border: 2px solid #00e5ff;
-box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
-}
+      .org-logo h1 {
+        font-size: 1.2rem;
+      }
 
-.vs-text {
-font-size: 1.3rem;
-color: #ffe600;
-text-shadow: 0 0 10px rgba(255, 230, 0, 0.9);
-}
+      .team-logos img {
+        width: 70px;
+        height: 70px;
+        border: 3px solid #00e5ff;
+        box-shadow: 0 0 25px rgba(0, 229, 255, 1);
+      }
 
-/* ✅ Horizontal countdown */
-.countdown {
-flex-direction: row;
-justify-content: center;
-font-size: 1.3rem;
-gap: 12px;
-background: linear-gradient(135deg, rgba(0,0,40,0.6), rgba(0,0,80,0.4));
-border: 1px solid rgba(255,215,0,0.4);
-box-shadow: 0 0 25px rgba(0,180,255,0.5);
-}
+      .vs-text {
+        font-size: 1.3rem;
+        color: #ffeb3b;
+        text-shadow: 0 0 15px rgba(255, 235, 59, 1), 0 2px 4px rgba(0,0,0,0.7);
+      }
 
-.countdown div {
-background: rgba(0,0,0,0.4);
-padding: 8px 10px;
-border-radius: 10px;
-}
+      /* Horizontal countdown */
+      .countdown {
+        flex-direction: row;
+        justify-content: center;
+        font-size: 1.3rem;
+        gap: 12px;
+        background: rgba(0, 0, 30, 0.8);
+        border: 2px solid rgba(0, 229, 255, 0.5);
+        box-shadow: 0 0 30px rgba(0, 229, 255, 0.7);
+      }
 
-.team-names {
-gap: 40px;
-font-size: 0.9rem;
-color: #fffbea;
-text-shadow: 0 0 5px rgba(255, 255, 200, 0.5);
-}
+      .countdown div {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 235, 59, 0.3);
+      }
 
-.cheer-btn {
-background: linear-gradient(90deg, #ff4d4d, #ff9900);
-box-shadow: 0 0 25px rgba(255,153,0,0.8);
-border: 1px solid rgba(255,255,255,0.3);
-}
+      .team-names {
+        gap: 40px;
+        font-size: 0.9rem;
+        color: #ffffff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 2px 4px rgba(0,0,0,0.6);
+      }
 
-.cheer-btn:hover {
-background: linear-gradient(90deg, #ff9900, #ff4d4d);
-box-shadow: 0 0 35px rgba(255,204,0,0.9);
-transform: scale(1.1);
-}
+      .cheer-btn {
+        background: linear-gradient(90deg, #ff4d4d, #ff9900);
+        box-shadow: 0 0 25px rgba(255, 153, 0, 0.9);
+        border: 2px solid rgba(255,255,255,0.4);
+      }
 
-.cricket-scene {
-right: 15px;
-bottom: 25px;
-width: 80px;
-height: 80px;
-}
-}
+      .cheer-btn:hover {
+        background: linear-gradient(90deg, #ff9900, #ff4d4d);
+        box-shadow: 0 0 35px rgba(255, 204, 0, 1);
+        transform: scale(1.1);
+      }
 
-```
-
+      .cricket-scene {
+        right: 15px;
+        bottom: 25px;
+        width: 80px;
+        height: 80px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -368,7 +376,7 @@ height: 80px;
     <p><strong>Match Starts:</strong> 09 November 2025, 9:00 AM IST</p>
   </div>
 
-<button class="cheer-btn" onclick="cheer()">Cheer for Your Team! 🎉</button>
+  <button class="cheer-btn" onclick="cheer()">Cheer for Your Team! 🎉</button>
 
   <div class="cricket-scene">
     <div class="bat"></div>
@@ -394,7 +402,7 @@ height: 80px;
 
       if (distance < 0) {
         clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "<h2>🏏 Match Started! Let’s Go! 🎉</h2>";
+        document.getElementById("countdown").innerHTML = "<h2>🏏 Match Started! Let's Go! 🎉</h2>";
       }
     }, 1000);
 
@@ -406,8 +414,8 @@ height: 80px;
       btn.style.transform = "scale(1.2)";
       setTimeout(() => {
         btn.textContent = "Cheer for Your Team! 🎉";
-        btn.style.background = "var(--highlight)";
-        btn.style.boxShadow = "0 0 15px rgba(255, 68, 68, 0.6)";
+        btn.style.background = "linear-gradient(135deg, #ff4444, #ff6b6b)";
+        btn.style.boxShadow = "0 0 20px rgba(255, 68, 68, 0.8)";
         btn.style.transform = "scale(1)";
       }, 2000);
     }
@@ -415,4 +423,3 @@ height: 80px;
 
 </body>
 </html>
-
