@@ -256,48 +256,79 @@ h2 {
 }
 
 /* ✅ Mobile layout */
+/* ✅ Mobile layout */
 @media (max-width: 600px) {
-  .org-logo {
-    top: 10px;
-    left: 10px;
-  }
-
-  .org-logo img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .org-logo h1 {
-    font-size: 1.2rem;
-  }
-
-  .team-logos img {
-    width: 70px;
-    height: 70px;
-  }
-
-  .vs-text {
-    font-size: 1.3rem;
-  }
-
-  .countdown {
-    flex-direction: column;
-    font-size: 1.5rem;
-    gap: 10px;
-  }
-
-  .team-names {
-    gap: 40px;
-    font-size: 0.9rem;
-  }
-
-  .cricket-scene {
-    right: 15px;
-    bottom: 25px;
-    width: 80px;
-    height: 80px;
-  }
+.org-logo {
+top: 10px;
+left: 10px;
 }
+
+.org-logo img {
+width: 50px;
+height: 50px;
+}
+
+.org-logo h1 {
+font-size: 1.2rem;
+}
+
+.team-logos img {
+width: 70px;
+height: 70px;
+border: 2px solid #00e5ff;
+box-shadow: 0 0 20px rgba(0, 229, 255, 0.7);
+}
+
+.vs-text {
+font-size: 1.3rem;
+color: #ffe600;
+text-shadow: 0 0 10px rgba(255, 230, 0, 0.9);
+}
+
+/* ✅ Horizontal countdown */
+.countdown {
+flex-direction: row;
+justify-content: center;
+font-size: 1.3rem;
+gap: 12px;
+background: linear-gradient(135deg, rgba(0,0,40,0.6), rgba(0,0,80,0.4));
+border: 1px solid rgba(255,215,0,0.4);
+box-shadow: 0 0 25px rgba(0,180,255,0.5);
+}
+
+.countdown div {
+background: rgba(0,0,0,0.4);
+padding: 8px 10px;
+border-radius: 10px;
+}
+
+.team-names {
+gap: 40px;
+font-size: 0.9rem;
+color: #fffbea;
+text-shadow: 0 0 5px rgba(255, 255, 200, 0.5);
+}
+
+.cheer-btn {
+background: linear-gradient(90deg, #ff4d4d, #ff9900);
+box-shadow: 0 0 25px rgba(255,153,0,0.8);
+border: 1px solid rgba(255,255,255,0.3);
+}
+
+.cheer-btn:hover {
+background: linear-gradient(90deg, #ff9900, #ff4d4d);
+box-shadow: 0 0 35px rgba(255,204,0,0.9);
+transform: scale(1.1);
+}
+
+.cricket-scene {
+right: 15px;
+bottom: 25px;
+width: 80px;
+height: 80px;
+}
+}
+
 ```
 
   </style>
@@ -384,3 +415,4 @@ h2 {
 
 </body>
 </html>
+
