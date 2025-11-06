@@ -4,359 +4,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cricket Match Countdown</title>
+  <title>राजमाता प्रिमीअर लीग पर्व दुसरे</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-    <!DOCTYPE html>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cricket Match Countdown</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-```
-:root {
-  --primary: #ffcc00; /* brighter gold */
-  --secondary: #00c2ff; /* rich blue */
-  --highlight: #ff4444;
-  --text-light: #ffffff;
-  --text-muted: #e0e0e0;
-  --bg-overlay: rgba(0, 0, 0, 0.65);
-}
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-light);
-  background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-    url('https://thumbs.dreamstime.com/b/full-illustration-cricket-ground-stands-night-stadium-illuminated-projector-lamps-sporting-arena-tournaments-367397924.jpg') no-repeat center center/cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--bg-overlay);
-  z-index: 0;
-}
-
-* {
-  position: relative;
-  z-index: 1;
-}
-
-/* Organizer Logo & Title */
-.org-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-}
-
-.org-logo img {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px solid var(--primary);
-  object-fit: cover;
-  background: #fff;
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
-}
-
-.org-logo h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--primary);
-  text-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
-  margin: 0;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.4rem;
-  color: var(--secondary);
-  text-shadow: 0 0 10px rgba(0, 194, 255, 0.6);
-  margin: 10px 0;
-}
-
-/* Teams section */
-.team-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-}
-
-.team-logos img {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  border: 2px solid var(--secondary);
-  background: #fff;
-  object-fit: cover;
-  box-shadow: 0 0 15px rgba(0, 194, 255, 0.6);
-}
-
-.team-logos h1 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: var(--primary);
-  text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
-  margin: 0 10px;
-}
-
-/* Countdown box */
-.countdown {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  background: rgba(10, 10, 40, 0.6);
-  padding: 15px 25px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(0, 194, 255, 0.3);
-  margin-top: 15px;
-}
-
-.countdown div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: var(--primary);
-  text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
-}
-
-.label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 5px;
-}
-
-.details {
-  margin-top: 20px;
-  font-size: 1rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.cheer-btn {
-  margin-top: 25px;
-  padding: 12px 30px;
-  font-size: 1rem;
-  font-weight: 600;
-  background: linear-gradient(45deg, #ff4444, #ff7777);
-  border: none;
-  border-radius: 30px;
-  color: var(--text-light);
-  cursor: pointer;
-  box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
-  transition: 0.3s ease;
-}
-
-.cheer-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 68, 68, 0.8);
-}
-
-/* Animation - bat and ball */
-.cricket-scene {
-  position: absolute;
-  bottom: 40px;
-  right: 50px;
-  width: 100px;
-  height: 100px;
-}
-
-.bat {
-  position: absolute;
-  width: 14px;
-  height: 80px;
-  background: #d4a05e;
-  border-radius: 5px;
-  bottom: 10px;
-  left: 20px;
-  transform-origin: bottom right;
-  animation: swing 2s ease-in-out infinite;
-}
-
-.bat::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 15px;
-  background: #6b3e18;
-  bottom: 0;
-  border-radius: 5px;
-}
-
-@keyframes swing {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(-45deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.ball {
-  position: absolute;
-  bottom: 15px;
-  left: 0;
-  width: 25px;
-  height: 25px;
-  background: radial-gradient(circle, #ff3d00, #b71c1c);
-  border-radius: 50%;
-  animation: bounce 2s ease-in-out infinite;
-  box-shadow: 0 0 10px rgba(255, 61, 0, 0.7);
-}
-
-@keyframes bounce {
-  0% { transform: translateX(0) translateY(0); }
-  50% { transform: translateX(40px) translateY(-50px); }
-  100% { transform: translateX(0) translateY(0); }
-}
-
-/* Mobile Fixes */
-@media (max-width: 600px) {
-  body {
-    padding: 0 15px;
-    height: auto;
-  }
-
-  .org-logo {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .org-logo img {
-    width: 55px;
-    height: 55px;
-  }
-
-  .org-logo h1 {
-    font-size: 1.4rem;
-  }
-
-  .team-logos {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .team-logos img {
-    width: 70px;
-    height: 70px;
-  }
-
-  .team-logos h1 {
-    font-size: 1.3rem;
-  }
-
-  .countdown {
-    flex-direction: column;
-    gap: 10px;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-  }
-
-  .details {
-    font-size: 0.9rem;
-  }
-
-  .cricket-scene {
-    right: 15px;
-    bottom: 20px;
-    width: 70px;
-    height: 70px;
-  }
-}
-```
-
-  </style>
-</head>
-
-<body>
-  <div class="org-logo">
-    <img src="org-logo.jpg" alt="Logo">
-    <h1>राजमाता प्रिमीअर लीग पर्व दुसरे</h1>
-  </div>
-
-  <h2>पहिली मॅच</h2>
-
-  <div class="team-logos">
-    <img src="team2.jpg" alt="1st Team Logo">
-    <h1>छत्रपती वॉरियर्स 🆚 युवराज रॉयल्स</h1>
-    <img src="team1.jpg" alt="2nd Team Logo">
-  </div>
-
-  <h2>Countdown to Match Start</h2>
-
-  <div class="countdown" id="countdown">
-    <div><span id="days">00</span><span class="label">Days</span></div>
-    <div><span id="hours">00</span><span class="label">Hours</span></div>
-    <div><span id="minutes">00</span><span class="label">Minutes</span></div>
-    <div><span id="seconds">00</span><span class="label">Seconds</span></div>
-  </div>
-
-  <div class="details">
-    <p><strong>Venue:</strong> राजमाता मित्र मंडळ भांडूप (प) 🏟️</p>
-    <p><strong>Overs:</strong> 5</p>
-    <p><strong>Match Starts:</strong> 09 November 2025, 9:00 AM IST</p>
-  </div>
-
-<button class="cheer-btn" onclick="cheer()">Cheer for Your Team! 🎉</button>
-
-  <div class="cricket-scene">
-    <div class="bat"></div>
-    <div class="ball"></div>
-  </div>
-
-  <script>
-    const matchDate = new Date("November 9, 2025 09:00:00").getTime();
-    const timer = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = matchDate - now;
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
-      if (distance < 0) {
-        clearInterval(timer);
-        document.getElementById("countdown").innerHTML = "<h2>🏏 Match Started! Let’s Go! 🎉</h2>";
-      }
-    }, 1000);
-
-    function cheer() {
-      const btn = document.querySelector('.cheer-btn');
-      btn.textContent = "Go Team Go! 🏏🔥";
-      btn.style.background = "linear-gradient(45deg,#4caf50,#81c784)";
-      btn.style.transform = "scale(1.1)";
-      setTimeout(() => {
-        btn.textContent = "Cheer for Your Team! 🎉";
-        btn.style.background = "linear-gradient(45deg, #ff4444, #ff7777)";
-        btn.style.transform = "scale(1)";
-      }, 2000);
+    :root {
+      --primary: #ffd700;
+      --secondary: #00b4ff;
+      --highlight: #ff4444;
+      --text-light: #ffffff;
+      --text-muted: #dcdcdc;
+      --bg-overlay: rgba(0, 0, 0, 0.6);
     }
-  </script>
 
-</body>
-</html>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-light);
+      background: url('https://thumbs.dreamstime.com/b/full-illustration-cricket-ground-stands-night-stadium-illuminated-projector-lamps-sporting-arena-tournaments-367397924.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--bg-overlay);
+      z-index: 0;
+    }
+
+    h1,
+    h2,
+    .details,
+    .countdown,
+    .cheer-btn,
+    .team-logos {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Organizer */
+    .org-logo {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+    }
+
+    .org-logo img {
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+      background: #fff;
+      object-fit: cover;
+    }
+
+    .org-logo h1 {
+      margin: 0;
+      font-size: 1.6rem;
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+
+    /* Teams */
+    .team-logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+
+    .team-logos img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 2px solid var(--secondary);
+      background: #fff;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0, 180, 255, 0.6);
+    }
+
+    .team-logos h1 {
+      font-size: 1.7rem;
+      color: var(--primary);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+      margin: 10px 0;
+      font-weight: 600;
+      flex-basis: 100%;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      color: var(--secondary);
+      margin: 5px 0;
+      text-shadow: 0 0 8px rgba(0, 180, 255, 0.6);
+    }
+
+    /* Countdown */
+    .countdown {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      background: rgba(0, 0, 40, 0.5);
+      padding: 15px 25px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      margin-top: 10px;
+      box-shadow: 0 0 20px rgba(0, 180, 255, 0.3);
+      flex-wrap: wrap;
+    }
+
+    .countdown div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--primary);
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+      min-width: 60px;
+    }
+
+    .label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 5px;
+    }
+
+    .details {
+      margin-top: 25px;
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .cheer-btn {
+      margin-top: 25px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      background: var(--highlight);
+      border: none;
+      border-radius: 30px;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
+    }
+
+    .cheer-btn:hover {
+      background: #ff6b6b;
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 68, 68, 0.9);
+    }
+
+    /* Animation */
+    .cricket-scene {
+      position: absolute;
+      bottom: 40px;
+      right: 60px;
+      width: 100px;
+      height: 100px;
+      z-index: 1;
+    }
+
+    .bat {
+      position: absolute;
+      width: 12px;
+      height: 80px;
+      background: #c69c6d;
+      border-radius: 5px;
+      bottom: 10px;
+      left: 20px;
+      transform-origin: bottom right;
+      animation: swing 2s ease-in-out infinite;
+    }
+
+    .bat::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 15px;
+      background: #795548;
+      bottom: 0;
+      border-radius: 5px;
+    }
 
     @keyframes swing {
       0% {
@@ -398,41 +242,58 @@ h2 {
       }
     }
 
-    @media (max-width: 600px) {
+    /* MOBILE */
+    @media (max-width: 700px) {
+      body {
+        padding: 0 15px;
+        text-align: center;
+      }
+
       .org-logo {
-        top: 10px;
-        left: 10px;
+        flex-direction: column;
+        align-items: center;
+        position: static;
+        margin-top: 15px;
       }
 
       .org-logo img {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
       }
 
       .org-logo h1 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+        text-align: center;
       }
 
-      .team-logos h1 {
-        font-size: 1.3rem;
+      .team-logos {
+        flex-direction: column;
       }
 
       .team-logos img {
-        width: 70px;
-        height: 70px;
+        width: 75px;
+        height: 75px;
+      }
+
+      .team-logos h1 {
+        font-size: 1.2rem;
       }
 
       .countdown {
-        flex-direction: column;
-        font-size: 1.5rem;
+        flex-direction: row;
+        font-size: 1.4rem;
         gap: 10px;
       }
 
+      .details {
+        font-size: 0.9rem;
+      }
+
       .cricket-scene {
-        right: 15px;
-        bottom: 25px;
-        width: 80px;
-        height: 80px;
+        right: 10px;
+        bottom: 20px;
+        width: 70px;
+        height: 70px;
       }
     }
   </style>
@@ -447,9 +308,9 @@ h2 {
   <h2>पहिली मॅच</h2>
 
   <div class="team-logos">
-    <img src="team2.jpg" alt="1st Team Logo">
+    <img src="team2.jpg" alt="Team 1">
     <h1>छत्रपती वॉरियर्स 🆚 युवराज रॉयल्स</h1>
-    <img src="team1.jpg" alt="2nd Team Logo">
+    <img src="team1.jpg" alt="Team 2">
   </div>
 
   <h2>Countdown to Match Start</h2>
@@ -462,8 +323,8 @@ h2 {
   </div>
 
   <div class="details">
-    <p><strong>Venue:</strong> राजमाता मित्र मंडळ भांडूप (प) 🏟️</p>
-    <p><strong>Overs:</strong> 5 </p>
+    <p><strong>Venue:</strong> राजमाता मित्र मंडळ भांडूप (प) 🏟️</p>
+    <p><strong>Overs:</strong> 5</p>
     <p><strong>Match Starts:</strong> 09 November 2025, 9:00 AM IST</p>
   </div>
 
@@ -512,7 +373,4 @@ h2 {
     }
   </script>
 </body>
-
 </html>
-
-
